@@ -1,24 +1,43 @@
 <template>
-  <div>
-    <div id="productList">
-      <div class="items" v-for="item in productList">
-        <h3>{{item.productName}}</h3>
-        <p>
-          <b>¥{{item.price}}</b>
-          <span>评论{{item.comments}}</span>
-        </p>
+  <div class="category">
+    <!-- 搜索框 -->
+    <form action="/">
+      <van-search
+        v-model="searchValue"
+        placeholder="请输入搜索关键词"
+        show-action
+      />
+    </form>
+
+    <div class="category-list">
+      <div class="categroy-nav">
+        <ul>
+          <li class="active"><a href="#">爆品专区</a></li>
+          <li><a href="#">新品专区</a></li>
+          <li v-for="item in category"><a href="#">{{item.name}}</a></li>
+        </ul>
+      </div>
+      <div class="category-subnav">
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Vue from 'vue';
+import Vant from 'vant';
+import 'vant/lib/index.css';
 import axios from "axios";
+
+Vue.use(Vant);
 export default {
   name: 'App',
   data () {
     return {
-      productList: []
+      productList: [],
+      searchValue: "搜索商品, 共20226款好物",
+      category: null
     }
   },
   mounted () {
@@ -32,7 +51,9 @@ export default {
         method: 'post',
         url: '/list'
       }).then(function(response){
-        that.productList = response.data;
+        let data = response.data;
+        that.productList = data;
+        that.category = data.category;
       })
     }
   }
@@ -40,9 +61,27 @@ export default {
 </script>
 
 <style lang="scss">
-.items{
-  h3{
-    font-size: 1rem;
+
+.category-list{
+  .categroy-nav{
+    width: 20%;
+    ul{
+      li{
+        margin-top: 1rem;
+        text-align: center;
+        a{
+          color: #333;
+        }
+      }
+      .active{
+        a{
+          color: #ab2b2b;
+        }
+      }
+    }
+  }
+  .category-subnav{
+    width: 80%;
   }
 }
 

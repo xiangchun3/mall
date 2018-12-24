@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="index">
     <!-- 搜索框 -->
     <form action="/">
       <van-search
@@ -144,12 +144,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .index{background-color: #f4f4f4;}
   .banner-item{
     width: 100%;
     height: 11.5625rem;
     background-size: cover;
   }
   .categroy{
+    background-color: #ffffff;
     .menu-tabs{
       height: 1.875rem;
       line-height: 1.875rem;
@@ -218,6 +220,7 @@ export default {
     width: 100%;
     height: 2.25rem;
     line-height: 2.25rem;
+    background-color: #ffffff;
     ul{
       width: 100%;
       height: 100%;
@@ -235,7 +238,8 @@ export default {
   }
   .quick-nav{
     width: 100%;
-    margin-top: .5rem;
+    margin-bottom: .5rem;
+    background-color: #ffffff;
     ul{
       width: 100%;
       height: 100%;
@@ -263,6 +267,7 @@ export default {
   .freshman{
     overflow: hidden;
     margin-bottom: 5rem;
+    background-color: #ffffff;
     h2{
       text-align: center;
       span{
