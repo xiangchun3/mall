@@ -17,10 +17,16 @@ module.exports = merge(baseConfig, {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: devMode ? '[name].css' : '[name].[hash].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].[hash].css',
     }),
   ],
+  output: {
+    // contenthash 若文件内容无变化，则contenthash 名称不变
+    filename: 'js/[name].[contenthash].js',
+    path: path.resolve(__dirname, '../dist'),
+    // publicPath: '/dist/' // 设置基础路径
+  },
   // SplitChunksPlugin 资源拆分配置，webpack4+ 新增，webpack4以前用CommonsChunkPlugin
   optimization: {
     splitChunks: {
