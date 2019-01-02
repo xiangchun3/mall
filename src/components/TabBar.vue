@@ -36,6 +36,7 @@
   border-top: 1px solid #d9d9d9;
   height: 3rem;
   align-items: center;
+  z-index: 9;
   a{
     text-align: center;
     text-decoration: none;

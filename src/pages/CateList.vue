@@ -1,26 +1,42 @@
 <template>
   <div class="category">
     <!-- 搜索框 -->
-    <form action="/">
-      <van-search
-        v-model="searchValue"
-        placeholder="请输入搜索关键词"
-        show-action
-      />
-    </form>
+    <div class="category-search">
+      <form action="/">
+        <van-search
+          v-model="searchValue"
+          placeholder="请输入搜索关键词"
+          show-action
+        />
+      </form>
+    </div>
 
-    <div class="category-list">
-      <div class="categroy-nav">
-        <ul>
-          <li class="active"><a href="#">爆品专区</a></li>
-          <li><a href="#">新品专区</a></li>
-          <li v-for="item in category"><a href="#">{{item.name}}</a></li>
-        </ul>
+    <!-- 左侧导航 -->
+    <div class="categroy-nav">
+      <ul>
+        <li class="active"><a href="#">爆品专区</a></li>
+        <li><a href="#">新品专区</a></li>
+        <li v-for="item in category"><a href="#">{{item.name}}</a></li>
+      </ul>
+    </div>
+
+    <!-- 右侧列表 -->
+    <div class="category-subnav">
+      <div class="banner">
+        <a href="#">
+          <img src="../assets/images/banner/category-banner.jpg" alt="">
+        </a>
       </div>
-      <div class="category-subnav">
-
+      <div class="list">
+        <!-- <li>
+          <img src="" alt="">
+          <span></span>
+        </li> -->
       </div>
     </div>
+
+    <!-- 底部导航 -->
+    <TabBar/>
   </div>
 </template>
 
@@ -61,28 +77,72 @@ export default {
 </script>
 
 <style lang="scss">
-
-.category-list{
-  .categroy-nav{
-    width: 20%;
-    ul{
-      li{
-        margin-top: 1rem;
-        text-align: center;
-        a{
-          color: #333;
-        }
+.category-search{
+  z-index: 9;
+}
+.categroy-nav{
+  width: 20%;
+  position: fixed;
+  top: 2.75rem;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  ul{
+    li{
+      margin-top: 1rem;
+      text-align: center;
+      a{
+        color: #333;
+        font-size: .875rem;
+        height: 1.625rem;
+        line-height: 1.625rem;
+        display: block;
       }
-      .active{
-        a{
-          color: #ab2b2b;
+    }
+    .active{
+      a{
+        color: #ab2b2b;
+        text-align: left;
+        &:before{
+          content: " ";
+          display: inline-block;
+          width: 3px;
+          height: 100%;
+          background-color: #ab2b2b;
+          vertical-align: -.45rem;
+          margin-right: .5rem;
         }
       }
     }
   }
-  .category-subnav{
-    width: 80%;
+  &:after{
+    content: '';
+    position: absolute;
+    background-color: rgba(0,0,0,.15);
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    -webkit-transform-origin: 100% 50% 0;
+    transform-origin: 100% 50% 0;
+    right: 0;
   }
 }
-
+.category-subnav{
+  width: 80%;
+  z-index: 9;
+  float: right;
+  margin: 1rem 0;
+  .banner{
+    width: 100%;
+    height: 6.3rem;
+    text-align: center;
+    a{
+      width: 100%;
+      height: 100%;
+      img{
+        width: 90%;
+      }
+    }
+  }
+}
 </style>

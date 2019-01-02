@@ -3,6 +3,6 @@
     <!-- 内容区 -->
     <router-view/>
     <!-- 底部导航条 -->
-    <TabBar/>
+    <!-- <TabBar/> -->
   </div>
 </template>

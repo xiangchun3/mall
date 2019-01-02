@@ -3,6 +3,9 @@
     <div id="productList">
       <van-icon name="arrow-down" />
     </div>
+    
+    <!-- 底部导航 -->
+    <TabBar/>
   </div>
 </template>
 <script>

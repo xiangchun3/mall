@@ -87,7 +87,8 @@
           </div>
         </div>
       </div>
-    </div>  
+    </div>
+    <TabBar/>
   </div>
 </template>
 

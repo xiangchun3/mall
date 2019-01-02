@@ -3,6 +3,9 @@
     <div id="productList">
       登录
     </div>
+    
+    <!-- 底部导航 -->
+    <TabBar/>
   </div>
 </template>
 

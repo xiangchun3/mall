@@ -22,6 +22,9 @@
       </div>
       <router-link to="/login" class="login-btn">登录</router-link>
     </div>
+    
+    <!-- 底部导航 -->
+    <TabBar/>
   </div>
 </template>
 
